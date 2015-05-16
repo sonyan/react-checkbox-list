@@ -1,7 +1,7 @@
 {
   "name": "react-checkbox-list",
-  "version": "1.0.0",
-  "description": "A bootstrap style react component for checkbox list.",
+  "version": "0.0.1",
+  "description": "A bootstrap-style react component for checkbox list.",
   "main": "CheckBoxList.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,9 +12,10 @@
   },
   "keywords": [
     "checkbox",
-    "checkbox-list",
-    "checkbox-group",
+    "checkboxlist",
+    "checkboxgroup",
     "react",
+    "bootstrap",
     "component"
   ],
   "author": "Sony An <sony.an@outlook.com>",
