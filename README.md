@@ -1,85 +1,50 @@
 # react-checkbox-list
 A bootstrap-style react component for checkbox list
 
-This is just a simple react component that takes a meta data, translates it into a checkbox list and notifies change.
-That's all it does.
-
-Listen for changes, get the new value as intuitively as possible:
-
-```html
-<CheckboxGroup name="fruit" value={['apple','watermelon']} ref="fruitsGroup" onChange={this.handleChange}>
-// further...
-
-this.refs.fruitsGroup.getCheckedValues(); // => whatever's currently checked
-```
-
-That's it for the API! See below for a complete example.
+This is just a simple react component that takes a meta data, translates it into a checkbox list and notifies change. That's all it does.
 
 ## Install
 
 ```sh
-bower install react-checkbox-group
+npm install react-checkbox-list
 or
-npm install react-checkbox-group
+bower install react-checkbox-list
 ```
 
+## Usage
 Simply require it to use it:
 
 ```javascript
-var CheckboxGroup = require('react-checkbox-group');
+var CheckBoxList = require('react-checkbox-list');
+```
+Provide initial data:
+
+```javascript
+var data = [
+  {value: 'apple', label: 'Apple'},
+  {value: 'orange', label: 'Orange'},
+  {value: 'banana', label: 'Banana', checked: true} // check by default
+];
+
+<CheckBoxList ref="chkboxList" defaultData={data} onChange={this.handleCheckboxListChange} />
+```
+Listen for changes and get the selected values:
+
+```javascript
+handleCheckboxListChange: function(values) {
+  // values is array of selected item. e.g ['apple', 'banana']
+}
 ```
 
-## Example
+Uncheck all items:
 
-```html
-/**
-* @jsx React.DOM
-*/
-var Demo = React.createClass({
-  getInitialState: function() {
-    return {value: ['apple','watermelon']};
-  },
-
-  componentDidMount: function() {
-    // Add orange and remove watermelon after 1 second
-    setTimeout(function() {
-      this.setState({value: ['apple','orange']});
-    }.bind(this), 1000);
-  },
-
-  render: function() {
-    // the checkboxes can be arbitrarily deep. They will always be fetched and
-    // attached the `name` attribute correctly. `value` is optional
-    return (
-      <CheckboxGroup
-        name="fruits"
-        value={this.state.value}
-        ref="fruitsGroup"
-        onChange={this.handleChange}
-      >
-        <div>
-          <label>
-            <input type="checkbox" value="apple"/>Apple
-          </label>
-          <label>
-            <input type="checkbox" value="orange"/>Orange
-          </label>
-          <label>
-            <input type="checkbox" value="watermelon"/>Watermelon
-          </label>
-        </div>
-      </CheckboxGroup>
-    );
-  },
-
-  handleChange: function() {
-    // will return the currently selected checkbox values as an array, possibly empty
-    var selectedFruits = this.refs.fruitsGroup.getCheckedValues();
-  }
-});
-
-React.renderComponent(<Demo/>, document.body);
+```javascript
+uncheckAll: function() {
+  this.refs.chkboxList.reset();
+}
 ```
+
+That's it for the API!
 
 ## License
 
