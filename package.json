@@ -1,6 +1,6 @@
 {
   "name": "react-checkbox-list",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A bootstrap-style react component for checkbox list.",
   "main": "CheckBoxList.js",
   "scripts": {
