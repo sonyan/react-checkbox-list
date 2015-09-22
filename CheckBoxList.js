@@ -46,6 +46,16 @@ module.exports = React.createClass({
 
 		this.setState({data: newData});
 	},
+	
+	checkAll: function() {
+		var newData = [];
+		this.state.data.forEach(function(item) {
+			item.checked = true;
+			newData.push(item);
+		});
+
+		this.setState({data: newData});
+	},
 
 	render: function() {
 		var options;
