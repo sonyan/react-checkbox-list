@@ -16,6 +16,10 @@ module.exports = React.createClass({
 		};
 	},
 
+	componentWillReceiveProps: function(nextProps) {
+		this.setState({data: nextProps.defaultData});
+	},
+
 	handleItemChange: function(e) {
 		var selectedValues = [],
 			newData = [];
@@ -47,7 +51,7 @@ module.exports = React.createClass({
 
 		this.setState({data: newData});
 	},
-	
+
 	checkAll: function() {
 		var newData = [];
 		this.state.data.forEach(function(item) {
@@ -57,7 +61,7 @@ module.exports = React.createClass({
 
 		this.setState({data: newData});
 	},
-	
+
 	render: function() {
 		var options;
 

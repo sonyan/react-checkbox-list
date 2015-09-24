@@ -15,6 +15,10 @@ module.exports = React.createClass({
 		};
 	},
 
+	componentWillReceiveProps: function(nextProps) {
+		this.setState({data: nextProps.defaultData});
+	},
+
 	handleItemChange: function(e) {
 		var selectedValues = [],
 			newData = [];
@@ -46,7 +50,7 @@ module.exports = React.createClass({
 
 		this.setState({data: newData});
 	},
-	
+
 	checkAll: function() {
 		var newData = [];
 		this.state.data.forEach(function(item) {
@@ -62,12 +66,12 @@ module.exports = React.createClass({
 
 		options = this.state.data.map(function(item, index) {
 			return (
-				React.createElement("div", {key: 'chk-' + index, className: "checkbox"}, 
-					React.createElement("label", null, 
+				React.createElement("div", {key: 'chk-' + index, className: "checkbox"},
+					React.createElement("label", null,
 						React.createElement("input", {
-							type: "checkbox", 
-							value: item.value, 
-							onChange: this.handleItemChange, 
+							type: "checkbox",
+							value: item.value,
+							onChange: this.handleItemChange,
 							checked: item.checked ? true : false}), " ", item.label
 					)
 				)
@@ -75,7 +79,7 @@ module.exports = React.createClass({
 		}.bind(this));
 
 		return (
-			React.createElement("div", null, 
+			React.createElement("div", null,
 				options
 			)
 		);
