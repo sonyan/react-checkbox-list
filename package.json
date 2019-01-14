@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/sonyan/react-checkbox-list/issues"
   },
-  "homepage": "https://github.com/sonyan/react-checkbox-list"
+  "homepage": "https://github.com/sonyan/react-checkbox-list",
+	"dependencies": {
+		"create-react-class": "^15.6.3",
+		"prop-types": "^15.6.2"
+	}
 }
