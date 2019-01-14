@@ -1,12 +1,14 @@
 'use strict';
-var React = require('react');
+var React            = require('react');
+var PropTypes        = require('prop-types');
+var CreateReactClass = require('create-react-class');
 
-module.exports = React.createClass({
+module.exports = CreateReactClass({
 	displayName: 'CheckBoxList',
 
 	propTypes: {
-		defaultData: React.PropTypes.array,
-		onChange: React.PropTypes.func
+		defaultData: PropTypes.array,
+		onChange: PropTypes.func
 	},
 
 	getInitialState: function() {
